@@ -1,0 +1,100 @@
+1.Citizen Kane.Orson Welles.1941.RKO Pictures
+2.The Godfather.Francis Ford Coppola.1972.Paramount
+3.Casablanca.Michael Curtiz.1942.Warner Brothers
+4.Raging Bull.Martin Scorsese.1980.United Artists
+5.Singin' in the Rain.Gene Kelly, Stanley Donen.1952.Metro-Goldwyn-Mayer
+6.Gone with the Wind.Victor Fleming.1939.MGM (distributor), Selznick International Pictures
+7.Lawrence of Arabia.David Lean.1962.Horizon, Columbia
+8.Schindler's List.Steven Spielberg.1993.Universal
+9.Vertigo.Alfred Hitchcock.1958.Paramount
+10.The Wizard of Oz.Victor Fleming.1939.Metro-Goldwyn-Mayer
+11.City Lights.Charlie Chaplin.1931.United Artists
+12.The Searchers.John Ford.1956.Warner Brothers
+13.Star Wars.George Lucas.1977.20th Century Fox, Lucasfilm
+14.Psycho.Alfred Hitchcock.1960.Shamley Productions, Paramount
+15.2001: A Space Odyssey.Stanley Kubrick.1968.Metro-Goldwyn-Mayer
+16.Sunset Boulevard.Billy Wilder.1950.Paramount
+17.The Graduate.Mike Nichols.1967.United Artists, Embassy
+18.The GeneralBuster Keaton .Clyde Bruckman.1926.United Artists
+19.On the Waterfront.Elia Kazan.1954.Columbia
+20.It's a Wonderful Life.Frank Capra.1946.RKO
+21.Chinatown.Roman Polanski.1974.Paramount
+22.Some Like It Hot.Billy Wilder.1959.United Artists
+23.The Grapes of Wrath.John Ford.1940.20th Century Fox
+24.ET the Extra-Terrestrial.Steven Spielberg.1982.Universal
+25.To Kill a Mockingbird.Robert Mulligan.1962.Universal-International
+26.Mr Smith Goes to Washington.Frank Capra.1939.Columbia
+27.High Noon.Fred Zinnemann.1952.United Artists
+28.All About Eve.Joseph L   Mankiewicz.1950.20th Century Fox
+29.Double Indemnity.Billy Wilder.1944.Paramount
+30.Apocalypse Now.Francis Ford Coppola.1979.United Artists
+31.The Maltese Falcon.John Huston.1941.Warner Brothers
+32.The Godfather Part II.Francis Ford Coppola.1974.Paramount
+33.One Flew Over the Cuckoo's Nest.Miloš Forman.1975.United Artists
+34.Snow White and the Seven Dwarfs.David Hand.1937.RKO Disney
+35.Annie Hall.Woody Allen.1977.United Artists
+36.The Bridge on the River Kwai.David Lean.1957.Columbia
+37.The Best Years of Our Lives.William Wyler.1946.RKO Samuel Goldwyn
+38.The Treasure of the Sierra Madre.John Huston.1948.Warner Brothers
+39.Dr Strangelove.Stanley Kubrick.1964.Columbia
+40.The Sound of Music.Robert Wise.1965.20th Century Fox
+41.King Kong.Merian C. Cooper, Ernest B Schoedsack.1933.RKO
+42.Bonnie and Clyde.Arthur Penn.1967.Warner Brothers
+43.Midnight Cowboy.John Schlesinger.1969.United Artists
+44.The Philadelphia Story.George Cukor.1940.Metro-Goldwyn-Mayer
+45.Shane.George Stevens.1953.Paramount
+46.It Happened One Night.Frank Capra.1934.Columbia
+47.A Streetcar Named Desire.Elia Kazan.1951.Warner Brothers
+48.Rear Window.Alfred Hitchcock.1954.Paramount
+49.Intolerance.D W Griffith.1916.Triangle
+50.The Lord of the Rings: The Fellowship of the Ring.Peter Jackson.2001.New Line Cinema
+51.West Side StoryJerome Robbins .Robert Wise.1961.United Artists
+52.Taxi Driver.Martin Scorsese.1976.Columbia Pictures
+53.The Deer Hunter.Michael Cimino.1978.Universal
+54.MASH.Robert Altman.1970.20th Century Fox
+55.North by Northwest.Alfred Hitchcock.1959.Metro-Goldwyn-Mayer
+56.Jaws.Steven Spielberg.1975.Universal
+57.Rocky.John G. Avildsen.1976.United Artists
+58.The Gold Rush.Charlie Chaplin.1925.United Artists
+59.Nashville.Robert Altman.1975.Paramount, ABC Entertainment
+60.Duck Soup.Leo McCarey.1933.Paramount Pictures
+61.Sullivan's Travels.Preston Sturges.1941.Paramount Pictures
+62.American Graffiti.George Lucas.1973.Universal, Lucasfilm
+63.Cabaret.Bob Fosse.1972.Allied Artists
+64.Network.Sidney Lumet.1976.MGM, United Artists
+65.The African Queen.John Huston.1951.United Artists
+66.Raiders of the Lost Ark.Steven Spielberg.1981.Paramount, Lucasfilm
+67.Who's Afraid of Virginia Woolf?.Mike Nichols.1966.Warner Bros.
+68.Unforgiven.Clint Eastwood.1992.Warner Brothers
+69.Tootsie.Sydney Pollack.1982.Columbia
+70.A Clockwork Orange.Stanley Kubrick.1971.Warner Brothers
+71.Saving Private Ryan.Steven Spielberg.1998.DreamWorks
+72.The Shawshank Redemption.Frank Darabont.1994.Warner Brothers
+73.Butch Cassidy and the Sundance Kid.George Roy Hill.1969.20th Century Fox
+74.The Silence of the Lambs.Jonathan Demme.1991.Orion Pictures
+75.In the Heat of the Night.Norman Jewison.1967.United Artists
+76.Forrest Gump.Robert Zemeckis.1994.Paramount
+77.All the President's Men.Alan J. Pakula.1976.Warner Brothers
+78.Modern Times.Charlie Chaplin.1936.United Artists
+79.The Wild Bunch.Sam Peckinpah.1969.Warner Bros.-Seven Arts
+80.The Apartment.Billy Wilder.1960.United Artists
+81.Spartacus.Stanley Kubrick.1960.Universal-International
+82.Sunrise: A Song of Two Humans.F W Murnau.1927.20th Century Fox
+83.Titanic.James Cameron.1997Paramount, .20th Century Fox
+84.Easy Rider.Dennis Hopper.1969.United Artists
+85.A Night at the Opera.Sam Wood.1935.Metro-Goldwyn-Mayer
+86.Platoon.Oliver Stone.1986.Orion Pictures
+87.12 Angry Men.Sidney Lumet.1957.United Artists
+88.Bringing Up Baby.Howard Hawks.1938.Warner Brothers
+89.The Sixth Sense.M Night Shyamalan.1999.Hollywood Pictures, Spyglass Entertainment, The Kennedy/Marshall Company
+90.Swing Time.George Stevens.1936.RKO
+91.Sophie's Choice.Alan J Pakula.1982.ITC Entertainment
+92.Goodfellas.Martin Scorsese.1990.Warner Brothers
+93.The French Connection.William Friedkin.1971.20th Century Fox
+94.Pulp Fiction.Quentin Tarantino.1994.Miramax
+95.The Last Picture Show.Peter Bogdanovich.1971.Columbia Pictures
+96.Do the Right Thing.Spike Lee.1989.Universal, 40 Acres & A Mule Filmworks
+97.Blade Runner.Ridley Scott.1982.Warner Brothers, The Ladd Company
+98.Yankee Doodle Dandy.Michael Curtiz.1942.Warner Brothers
+99.Toy Story.John Lasseter.1995.Disney, Pixar
+100.Ben-Hur.William Wyler.1959.Metro-Goldwyn-Mayer
