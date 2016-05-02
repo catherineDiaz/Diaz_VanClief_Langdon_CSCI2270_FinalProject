@@ -74,7 +74,7 @@ class MovieTree
         MovieNode* searchAll(std::string title);
         void searchStudio(MovieNode * node, std::string studio);
         MovieNode *order[100];
-        MovieNode* searchByDirector(MovieNode *node, std::string director);
+        void searchByDirector(MovieNode *node, std::string director);
         bool found = false;
 
 };

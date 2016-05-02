@@ -63,7 +63,7 @@ class AcademyAwardTree
         AcademyAwardNode* treeMinimum(AcademyAwardNode *node);
         AcademyAwardNode *awardRoot;
         void searchByYear(AcademyAwardNode *node, int year);
-        AcademyAwardNode* winnerSearch(AcademyAwardNode *node, int numAwards, int year1, int year2);
+        void winnerSearch(AcademyAwardNode *node, int numAwards, int year1, int year2);
         AcademyAwardNode* searchAll(std::string title);
         bool found = false;
 };

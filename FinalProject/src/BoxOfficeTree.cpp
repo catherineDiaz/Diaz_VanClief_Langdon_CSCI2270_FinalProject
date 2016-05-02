@@ -164,7 +164,7 @@ void BoxOfficeTree::findBoxOfficeMovie(string title)
         cout << "===========" << endl;
         cout << "Ranking: " << node->ranking << endl;
         cout << "Year: " << node->year << endl;
-        cout << "Title:" << node->title << endl;
+        cout << "Title: " << node->title << endl;
         cout << "Domestic: $" << node->domestic << endl;
         cout << "International: $" << node->international << endl;
         cout << "Worldwide: $" << node->worldwide << endl;
@@ -242,248 +242,88 @@ int BoxOfficeTree::countBoxOfficeNodes()
 //==================================DELETE MOVIE NODE=========================================
 void BoxOfficeTree::deleteBoxOfficeNode(string title)
 {
-   BoxOfficeNode *nodeDelete = search(title);
+    BoxOfficeNode * foundMovie = search(title);
 
-    if(nodeDelete != NULL)
-    {
-
-        if((nodeDelete->leftChild == NULL) && (nodeDelete->rightChild == NULL))// node to delete has no children
+        // If the movie exists
+        if (foundMovie != NULL)
         {
-            BoxOfficeNode *node;
-            node = nodeDelete;
-            if(node->parent->leftChild == node)
+            // If it has no children
+            if (foundMovie->leftChild == NULL && foundMovie->rightChild == NULL)
             {
-                node->parent->leftChild = NULL;
+                // If this node is the left child, set the parents left child to NULL
+                if (foundMovie->parent->leftChild == foundMovie)
+                    foundMovie->parent->leftChild = NULL;
+                // Else, this node is the right child, set that to NULL
+                else
+                    foundMovie->parent->rightChild = NULL;
+                // Delete the node
+                delete foundMovie;
+
             }
+            // If it only has a left child
+            else if (foundMovie->rightChild == NULL)
+            {
+                if (foundMovie->parent->leftChild == foundMovie)
+                    foundMovie->parent->leftChild = foundMovie->leftChild;
+                else
+                     foundMovie->parent->rightChild = foundMovie->leftChild;
+
+                delete foundMovie;
+
+            }
+            // If it only has a right child
+            else if (foundMovie->leftChild == NULL)
+            {
+                if (foundMovie->parent->leftChild == foundMovie)
+                    foundMovie->parent->leftChild = foundMovie->rightChild;
+                else
+                     foundMovie->parent->rightChild = foundMovie->rightChild;
+
+                delete foundMovie;
+            }
+
+            // Node has two children, we need the smallest node from the right child
             else
             {
-                node->parent->rightChild = NULL;
-            }
-            delete node;
-            //cout << "node with no children deleted" << endl;
+                // Start on the right sub-tree
+                BoxOfficeNode * replacementNode = foundMovie->rightChild;
 
-        }
-        else if((nodeDelete->leftChild == NULL) && (nodeDelete->rightChild != NULL))//node to delete has only right child
-        {
-            BoxOfficeNode *node;
-            //cout << "in the else if" << endl;
-            if(nodeDelete->parent->rightChild == nodeDelete)
-            {
-                node = nodeDelete->rightChild;
-                nodeDelete->parent->rightChild = node;
-                node->parent = nodeDelete->parent;
-                //cout << "node deleted was right child" << endl;
-                delete nodeDelete;
-            }
-            else
-            {
-                node = nodeDelete->rightChild;
-                nodeDelete->parent->leftChild = node;
-                node->parent = nodeDelete->parent;
-                //cout << "node deleted was left child" << endl;
-                delete nodeDelete;
-            }
-            //delete nodeDelete;
-            //cout << "node with right child deleted "<< endl;
-
-        }
-        else if(nodeDelete->leftChild != NULL && nodeDelete->rightChild == NULL)// node to delete only has left child
-        {
-            BoxOfficeNode *node;
-            //cout << "in the else if" << endl;
-            if(nodeDelete->parent->rightChild == nodeDelete)
-            {
-                node = nodeDelete->leftChild;
-                nodeDelete->parent->leftChild = node;
-                node->parent = nodeDelete->parent;
-                delete nodeDelete;
-
-            }
-            else
-            {
-                node = nodeDelete->leftChild;
-                nodeDelete->parent->rightChild = node;
-                node->parent = nodeDelete->parent;
-                delete nodeDelete;
-            }
-
-            //delete nodeDelete;
-            //cout << "node with left child deleted "<< endl;
-
-        }
-        else//(nodeDelete->leftChild != NULL && nodeDelete->rightChild != NULL)// node to delete has 2 children
-        {
-            //cout << "nodeDelete has 2 children" << endl;
-           // MovieNode *node;
-            //node = nodeDelete;
-            BoxOfficeNode *minimum = treeMinimum(nodeDelete->rightChild);
-            //cout << minimum->title << endl;
-
-                if(nodeDelete->parent == NULL)
+                // search for the smallest left child
+                while (replacementNode->leftChild != NULL)
                 {
-                    //cout << "The nodeDelete is the ROOT of the tree" << endl;
-                    //cout << "The minimum has NO children" << endl;
-                   // cout << nodeDelete->title << " is going to be replaced by: " << minimum->title << endl;
-                    minimum->parent->leftChild = NULL;
-                    boxRoot = minimum;
-                    minimum->leftChild = boxRoot->leftChild;
-                    minimum->rightChild = boxRoot->rightChild;
-                    boxRoot->rightChild->parent = minimum;
-                    boxRoot->leftChild->parent = minimum;
-
-
-                }
-                else if(nodeDelete->rightChild == minimum)
-                {
-                    //cout << "nodeDelete is being replaced by right child" << endl;
-                    if(nodeDelete->parent->rightChild == nodeDelete)
-                    {
-
-                        if(minimum->rightChild == NULL)// if min has no right child
-                        {
-                            //cout << "The nodeDelete is a right child" << endl;
-                            //cout << "The minimum has no right child" << endl;
-                            //cout << nodeDelete->title << "is going to be replaced by: " << minimum->title << endl;
-                            nodeDelete->parent->rightChild = minimum;
-                            nodeDelete->leftChild->parent = minimum;
-                            minimum->parent = nodeDelete->parent;
-                            minimum->leftChild = nodeDelete->leftChild;
-                            delete nodeDelete;
-
-                        }
-                        else
-                        {
-                            // the minimum has a right child
-                            //cout << "The nodeDelete is a right child" << endl;
-                            //cout << "The minimum has right child" << endl;
-                            //cout << nodeDelete->title << "is going to be replaced by: " << minimum->title << endl;
-                            nodeDelete->parent->rightChild = minimum;
-                            nodeDelete->leftChild->parent = minimum;
-                            minimum->parent = nodeDelete->parent;
-                            minimum->leftChild = nodeDelete->leftChild;
-                            delete nodeDelete;
-
-                        }
-                    }
-                    else// node delete is a left child
-                    {
-                        if(minimum->rightChild == NULL)// has no right child
-                        {
-                            //cout << "The nodeDelete is a left child" << endl;
-                            //cout << "The minimum has no right child" << endl;
-                            //cout << nodeDelete->title << " is going to be replaced by: " << minimum->title << endl;
-                            nodeDelete->parent->leftChild = minimum;
-                            nodeDelete->leftChild->parent = minimum;
-                            minimum->parent = nodeDelete->parent;
-                            minimum->leftChild = nodeDelete->leftChild;
-                            delete nodeDelete;
-
-                        }
-                        else
-                        {
-                            // the minimum has a right child
-                            //cout << "The nodeDelete is a left child" << endl;
-                            //cout << "The minimum has right child" << endl;
-                            //cout << nodeDelete->title << " is going to be replaced by: " << minimum->title << endl;
-                            nodeDelete->parent->leftChild = minimum;
-                            nodeDelete->leftChild->parent = minimum;
-                            minimum->parent = nodeDelete->parent;
-                            minimum->leftChild = nodeDelete->leftChild;
-                            delete nodeDelete;
-
-                        }
-
-                    }
-
+                    replacementNode = replacementNode->leftChild;
                 }
 
-                else// replace with minimum that is not the right child
-                {
-                    //cout << "nodeDelete is being replaced by lowest value in right subtree" << endl;
-
-                    if(nodeDelete->parent->rightChild == nodeDelete)// if the node to delete is a right child
-                    {
-
-                        if(minimum->rightChild == NULL)// if min has no right child
-                        {
-                            //cout << "The nodeDelete is a right child" << endl;
-                            //cout << "The minimum has NO children" << endl;
-                            //cout << nodeDelete->title << " is going to be replaced by: " << minimum->title << endl;
-                            minimum->parent->leftChild = NULL;
-                            minimum->parent = nodeDelete->parent;
-                            //minimum->rightChild->parent = minimum->parent;
-                            nodeDelete->parent->rightChild = minimum; // HERERE
-                            minimum->leftChild = nodeDelete->leftChild;
-                            minimum->rightChild = nodeDelete->rightChild;
-                            nodeDelete->rightChild->parent = minimum;
-                            nodeDelete->leftChild->parent = minimum;
-                            delete nodeDelete;
-
-                        }
-                        else
-                        {
-                            // the minimum has a right child
-                            //cout << "The nodeDelete is a right child" << endl;
-                            //cout << "The minimum has right child(ren)" << endl;
-                            //cout << nodeDelete->title << " is going to be replaced by: " << minimum->title << endl;
-                            minimum->parent->leftChild = minimum->rightChild;
-                            minimum->parent = nodeDelete->parent;
-                            minimum->rightChild->parent = minimum->parent;
-                            nodeDelete->parent->rightChild = minimum; // HERERE
-                            minimum->leftChild = nodeDelete->leftChild;
-                            minimum->rightChild = nodeDelete->rightChild;
-                            nodeDelete->rightChild->parent = minimum;
-                            nodeDelete->leftChild->parent = minimum;
-                           delete nodeDelete;
-
-                        }
-                    }
-                    else// node delete is a left child
-                    {
-                        if(minimum->rightChild == NULL)// has no right child
-                        {
-                            //cout << "The nodeDelete is a left child" << endl;
-                            //cout << "The minimum has NO children" << endl;
-                            //cout << nodeDelete->title << " is going to be replaced by: " << minimum->title << endl;
-                            minimum->parent->leftChild = NULL;
-                            minimum->parent = nodeDelete->parent;
-                            nodeDelete->parent->leftChild = minimum; // HERERE
-                            minimum->leftChild = nodeDelete->leftChild;
-                            minimum->rightChild = nodeDelete->rightChild;
-                            nodeDelete->rightChild->parent = minimum;
-                            nodeDelete->leftChild->parent = minimum;
-                            delete nodeDelete;
-
-                        }
-                        else
-                        {
-                            // the minimum has a right child
-                            //cout << "The nodeDelete is a left child" << endl;
-                            //cout << "The minimum has right child(ren)" << endl;
-                            //cout << nodeDelete->title << " is going to be replaced by: " << minimum->title << endl;
-                            minimum->parent->leftChild = minimum->rightChild;
-                            minimum->parent = nodeDelete->parent;
-                            minimum->rightChild->parent = minimum->parent;
-                            nodeDelete->parent->leftChild = minimum; // HERERE
-                            minimum->leftChild = nodeDelete->leftChild;
-                            minimum->rightChild = nodeDelete->rightChild;
-                            nodeDelete->rightChild->parent = minimum;
-                            nodeDelete->leftChild->parent = minimum;
-                            delete nodeDelete;
-
-                        }
-
-                    }
-                }
+                // Swap in all the info from the replacement to this node we are "deleting"
+                foundMovie->ranking = replacementNode->ranking;
+                foundMovie->year = replacementNode->year;
+                foundMovie->title = replacementNode->title;
+                foundMovie->domestic = replacementNode->domestic;
+                foundMovie->international = replacementNode->international;
+                foundMovie->worldwide = replacementNode->worldwide;
 
 
+                // If the replacement node has a right child, update the parent
+                if (replacementNode->rightChild != NULL)
+                    replacementNode->rightChild->parent = replacementNode->parent;
 
+                // If the replacement node is a left child
+                if (replacementNode->parent->leftChild == replacementNode)
+                    replacementNode->parent->leftChild = replacementNode->rightChild;
+                // If it is a right child
+                else
+                    replacementNode->parent->rightChild = replacementNode->rightChild;
+
+                // Delete the node
+                delete replacementNode;
+            }
         }
-    }
-    else
-    {
-        cout << "Movie not found." << endl;
-    }
+        // If it doesn't exist
+        else
+        {
+            cout << "Movie not found." << endl;
+        }
+
 
 }
 
@@ -615,39 +455,75 @@ void BoxOfficeTree::simplify()
     {
 
     //domestic length
-    int domesticLength = 1;
+    /*int domesticLength = 1;
     int x = node->domestic;
     while ( x /= 10 )
-        domesticLength++;
+        domesticLength++;*/
     //international length
-    int internationalLength = 1;
-    int y = node->international;
-    while ( y /= 10 )
-        internationalLength++;
-    //worldwide length
     int worldwideLength = 1;
-    int z = node->worldwide;
-    while ( z /= 10 )
+    int y = node->worldwide;
+    while ( y /= 10 )
         worldwideLength++;
+    //worldwide length
+
+   /*
     //==========
     float simpleDomestic = node->domestic;
     for(int i = 0; i< domesticLength-1; i++)
     {
         simpleDomestic = simpleDomestic/10;
-    }
-    float simpleInternational = node->international;
-    for(int i = 0; i< internationalLength-1; i++)
-    {
-        simpleInternational = simpleInternational/10;
-    }
+    }*/
     float simpleWorldwide = node->worldwide;
     for(int i = 0; i< worldwideLength-1; i++)
     {
         simpleWorldwide = simpleWorldwide/10;
     }
-    cout<<"Simplified domestic: $"<<setprecision(2)<<simpleDomestic<<" billion."<<endl;
-    cout<<"Simplified international: $"<<setprecision(2)<<simpleInternational<<" billion."<<endl;
-    cout<<"Simplified worldwide: $"<<setprecision(2)<<simpleWorldwide<<" billion."<<endl;
+
+
+    int simpleDomestic;
+    int simpleInternational;
+    unsigned int simpleWorld;
+    //int simpleWorldwide;
+
+        if(node->domestic > 1000000 && node->domestic < 1000000000)
+        {
+            simpleDomestic = node->domestic;
+            simpleDomestic = simpleDomestic/1000000;
+            cout<<"Simplified domestic: $"<< simpleDomestic << " million" << endl;
+
+        }
+        else
+        {
+            simpleDomestic = node->domestic;
+            simpleDomestic = simpleDomestic/1000000000;
+            cout<<"Simplified domestic: $"<< simpleDomestic << " billion" << endl;
+        }
+        if(node->international > 1000000 && node->international < 1000000000)
+        {
+            simpleInternational = node->international;
+            simpleInternational = simpleInternational/1000000;
+            cout<<"Simplified international: $"<< simpleInternational << " million" << endl;
+
+        }
+        else
+        {
+            simpleInternational = node->international;
+            simpleInternational = simpleInternational/1000000000;
+            cout<<"Simplified international: $"<< simpleInternational << " billion" << endl;
+        }
+        if(node->worldwide > 1000000 && node->worldwide < 1000000000)
+        {
+            simpleWorld = node->worldwide;
+            simpleWorld = simpleWorld/1000000;
+            cout<<"Simplified worldwide: $" <<simpleWorld << " million" << endl;
+
+        }
+        else
+        {
+            //simpleWorld = node->worldwide;
+            //simpleWorld = simpleWorld/1000000000;
+            cout<<"Simplified worldwide: $"<<setprecision(2) << simpleWorldwide << " billion" << endl;
+        }
     }
     else
     {
